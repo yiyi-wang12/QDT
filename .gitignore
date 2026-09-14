@@ -1,0 +1,13 @@
+# data
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# test files
+_admin_test.py
+test_*.py
+*_test.py
+tests/

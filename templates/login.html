@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 - QDT 四象限时间管理</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2b3a67 0%, #1c2541 100%);
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    width: 360px;
+    padding: 40px 32px;
+  }
+  h1 { font-size: 22px; text-align: center; color: #1c2541; margin-bottom: 6px; }
+  .sub { text-align: center; color: #8a93a6; font-size: 13px; margin-bottom: 26px; }
+  .field { margin-bottom: 18px; }
+  label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; }
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d8dce6;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  input:focus { border-color: #2b3a67; }
+  button {
+    width: 100%;
+    padding: 11px 0;
+    background: #2b3a67;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  button:hover { background: #1c2541; }
+  .links { text-align: center; margin-top: 16px; font-size: 13px; color: #8a93a6; }
+  .links a { color: #2b3a67; text-decoration: none; font-weight: bold; }
+  .error {
+    background: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .site-footer {
+    position: fixed;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255,255,255,.55);
+    font-size: 12px;
+    padding: 0 16px;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>QDT · 四象限时间管理</h1>
+    <p class="sub">登录你的账户</p>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="post">
+      <div class="field">
+        <label>用户名</label>
+        <input type="text" name="username" placeholder="请输入用户名" required autofocus>
+      </div>
+      <div class="field">
+        <label>密码</label>
+        <input type="password" name="password" placeholder="请输入密码" required>
+      </div>
+      <button type="submit">登 录</button>
+    </form>
+    <div class="links">
+      还没有账户？<a href="{{ url_for('register') }}">立即注册</a>
+    </div>
+  </div>
+  {% if footer %}<footer class="site-footer">{{ footer }}</footer>{% endif %}
+</body>
+</html>
